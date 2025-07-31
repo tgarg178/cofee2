@@ -351,3 +351,54 @@ background-color: #f5f2eb;
 
 
 }
+
+
+.coffeeSection {
+  background-color: #fcf4eb;
+  overflow: hidden;
+}
+
+/* LEFT SIDE IMAGE */
+.leftImage {
+  padding: 0;
+}
+
+/* STICKY IMAGE ON DESKTOP ONLY */
+@media (min-width: 768px) {
+  .coffeeSection {
+    height: 100vh;
+  }
+
+  .stickyWrap {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .rightContent {
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+/* RIGHT CONTENT COMMON */
+.rightContent {
+  padding: 2rem 1rem;
+  overflow-y: auto;
+
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+
+.rightContent::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari */
+}
+
+/* ENSURE RIGHT SIDE IS VISIBLE ON MOBILE */
+@media (max-width: 767px) {
+  .rightContent {
+    min-height: 100vh;
+  }
+}

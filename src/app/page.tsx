@@ -56,6 +56,10 @@ import test6 from "@/assets/test6.webp";
 
 
 import bannr1 from "../assets/b9new.jpg";
+
+import c1 from "../assets/c1.jpg";
+
+
 import bannr4 from "../assets/b3new.jpg";
 
 import bannr3 from "../assets/b7new.jpg";
@@ -71,13 +75,48 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import extractionImg from '@/assets/extarctionanother.webp'
+import evaporationImg from '@/assets/evaporation.webp'
+import dryingImg from '@/assets/drying.webp'
+import thermalImg from '@/assets/evaporation.webp'
+import testcenterImg from '@/assets/etxtcenter.webp'
 
 export default function Home() {
   const pathname = usePathname();
 
 
-
+ const processData = [
+    {
+      title: 'Extraction',
+      desc: 'We begin with advanced extraction techniques to draw out valuable coffee compounds from natural raw materials. Our environmentally friendly extraction plants ensure that the essential flavors, aromas, and active ingredients are captured with maximum efficiency—laying the foundation for high-quality coffee concentrates and extracts.',
+      img: extractionImg,
+      alt: 'Extraction process image',
+    },
+    {
+      title: 'Evaporation',
+      desc: 'Once the coffee essence is extracted, we use cutting-edge evaporation systems to reduce water content while preserving the richness of flavor. This process concentrates the liquid extracts, making them suitable for use in instant coffee, flavoring systems, and cold brew formulations.',
+      img: evaporationImg,
+      alt: 'Evaporation process image',
+    },
+    {
+      title: 'Drying',
+      desc: 'To transform liquid extracts into shelf-stable powders, we employ gentle drying technologies. This step ensures optimal preservation of flavor and aroma while maintaining the highest product quality. Our drying solutions are ideal for producing spray-dried and freeze-dried coffee powders.',
+      img: dryingImg,
+      alt: 'Drying process image',
+    },
+    {
+      title: 'Thermal process engineering',
+      desc: 'For specific product requirements, we apply thermal process engineering to ensure safe, hygienic, and effective treatment of ingredients. Our systems maintain strict control over temperature and time, allowing us to meet food safety standards without compromising taste or quality.',
+      img: thermalImg,
+      alt: 'Thermal processing image',
+    },
+    {
+      title: 'Test Center',
+      desc: 'Innovation starts with testing. Our in-house test center enables pilot-scale trials, process optimization, and product development. Here, we collaborate with partners to fine-tune new coffee concepts—ensuring every product meets both technical standards and consumer expectations.',
+      img: testcenterImg,
+      alt: 'Test center image',
+    },
+  ]
   
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -400,7 +439,51 @@ const testimonials = [
     </section>
 
 
+<section className="container-fluid coffeeSection">
+  <div className="row flex-column flex-md-row">
+    {/* LEFT - IMAGE */}
+    <div className="col-12 col-md-6 leftImage">
+      <div className="stickyWrap">
+        <Image
+          src={c1}
+          alt="Pouring Coffee"
+          layout="responsive"
+          priority
+          className="img-fluid leftImage1"
+        />
+      </div>
+    </div>
 
+    {/* RIGHT - CONTENT */}
+    <div className="col-12 col-md-5 rightContent mx-auto">
+      <h2 className="mb-2 fw-bold text-uppercase text-center" style={{ color: '#a86a3d' }}>
+        Coffee Manufacturing Process
+      </h2>
+      <div className="row gy-5 mt-1 mx-auto">
+        {processData.map((step, index) => (
+          <div className="col-12 maxprocess" key={index}>
+            <div className="d-flex gap-4 flex-wrap">
+              <div className="mb-3 col-12 animate__animated animate__fadeInLeft">
+                <Image
+                  src={step.img}
+                  alt={step.alt}
+                  width={400}
+                  height={300}
+                  className="rounded img-fluid object-fit-cover"
+                  style={{ objectFit: 'cover', height: '250px', width: '100%' }}
+                />
+              </div>
+              <div className="mb-3 col-12 text-center animate__animated animate__fadeInRight">
+                <h2 className="orangetext">{step.title}</h2>
+                <p className="text-black px-3 parafamily">{step.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
 
   <section className="container my-5 aboutSection ">
