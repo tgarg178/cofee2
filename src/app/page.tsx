@@ -16,7 +16,7 @@ import React, { useEffect ,useState} from 'react';
 import { usePathname } from 'next/navigation';
 // import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, EffectCreative } from 'swiper/modules';
+import { Navigation, Pagination, EffectCreative ,Autoplay} from 'swiper/modules';
 import Image from 'next/image';
 // import banner from '../assets/machine1baneer.webp'; 
 import logo from '../assets/logomain.png';
@@ -372,7 +372,7 @@ const testimonials = [
 
        
 <Swiper
-  modules={[Navigation, Pagination, EffectCreative, ]} // Include Autoplay
+  modules={[Navigation, Pagination, EffectCreative, Autoplay]} // Include Autoplay
   navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
   pagination={{ el: ".custom-pagination", type: "fraction" }}
  
