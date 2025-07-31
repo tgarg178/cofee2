@@ -12,7 +12,7 @@ import emailjs from "emailjs-com";
 
 import { Button } from 'react-bootstrap';
 
-import React, { useEffect } from 'react';
+import React, { useEffect ,useState} from 'react';
 import { usePathname } from 'next/navigation';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -21,6 +21,8 @@ import Image from 'next/image';
 import banner from '../assets/machine1baneer.webp'; // Your actual image
 import logo from '../assets/logomain.png';
 import logo2 from '../assets/logonew.png';
+import logo3 from '../assets/logo3.png';
+
 
 import cofemanu2 from '../assets/cofemanu2.webp'
 
@@ -53,7 +55,16 @@ import test5 from "@/assets/test5.webp";
 import test6 from "@/assets/test6.webp";
 
 
+import bannr1 from "../assets/b9new.jpg";
+import bannr4 from "../assets/b3new.jpg";
 
+import bannr3 from "../assets/b7new.jpg";
+
+
+import bannr2 from "../assets/b10.jpg";
+
+
+import Link from 'next/link';
 // Swiper and Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'swiper/css';
@@ -64,6 +75,26 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Home() {
   const pathname = usePathname();
+
+
+
+  
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Process', href: '/services' },
+  { label: 'Product', href: '/Product' },
+
+  { label: 'Contact', href: '/contact' },
+];
+
+const socialIcons = [
+  { icon: 'facebook', color: '#F26522' },
+  { icon: 'instagram', color: '#F26522' },
+  { icon: 'linkedin', color: '#F26522' },
+  { icon: 'twitter', color: '#F26522' },
+  { icon: 'youtube', color: '#F26522' },
+];
 
   useEffect(() => {
     import('bootstrap/js/dist/collapse').then(({ default: Collapse }) => {
@@ -212,257 +243,220 @@ const testimonials = [
     image: test5,
   },
 ];
-
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
 
 
 
   <>
-     <section className="position-relative max90banner mt-md-4 ">
-        {/* Navbar */}
-        <Navbar expand="lg" variant="dark" className={` navbarmain x`}>
-          <Container fluid>
-          <Navbar.Brand href="#">
-  <Image
-    src={logo2}
-    alt="Golden Coffee Roasters Logo"
-    width={200}
-    height={70}
-    priority
-    className="d-md-block d-none"
-  />
-   <Image
-    src={logo}
-    alt="Golden Coffee Roasters Logo"
-    width={250}
-    height={70}
-    priority
-    className="d-md-none d-block"
-  />
-</Navbar.Brand>
-          <Navbar.Toggle aria-controls="coffee-navbar" className="custom-toggler" />
-<Navbar.Collapse id="coffee-navbar">
-  <Nav className="ms-auto gap-4 " >
-    <Nav.Link href="#">Home </Nav.Link>
-    <Nav.Link href="#">About</Nav.Link>
-    <Nav.Link href="#">Process</Nav.Link>
-
-    <Nav.Link href="#">Products</Nav.Link>
-    <Nav.Link href="#">Contact</Nav.Link>
-
-   
-
-    {/* Social Links */}
-    {/* <Nav.Link href="#"><i className="fab fa-facebook-f"></i></Nav.Link>
-    <Nav.Link href="#"><i className="fab fa-youtube"></i></Nav.Link>
-    <Nav.Link href="#"><i className="fab fa-instagram"></i></Nav.Link>
-    <Nav.Link href="#"><i className="fab fa-twitter"></i></Nav.Link>
-    <Nav.Link href="#"><i className="fas fa-globe"></i></Nav.Link> */}
 
 
-       <Button
-      variant="outline-light"
-      className="rounded-pill px-4  fw-semibold btnmain"
-      style={{
-        borderColor: '#707070',
-       
-        background: 'rgba(255, 255, 255, 0.05)',
-        backdropFilter: 'blur(10px)',
-      }}
-      href="#contact"
-    >
-      Get in Touch
-    </Button>
-  </Nav>
-</Navbar.Collapse>
-          </Container>
-        </Navbar>
-  
-        {/* Swiper Slider */}
-        <Swiper
-          modules={[Navigation, Pagination, EffectCreative]}
-          navigation={{ nextEl: '.custom-next', prevEl: '.custom-prev' }}
-          pagination={{ el: '.custom-pagination', type: 'fraction' }}
-          effect="creative"
-          creativeEffect={{
-            prev: { shadow: true, translate: [0, 0, -400] },
-            next: { translate: ['100%', 0, 0] },
-          }}
-          loop
-          className="mySwiper  rounded-5"
+
+
+
+     <nav className="navbar navbar-expand-lg bgnavbar py-0 border-bottom">
+      <div className="container-fluid px-3 px-md-5 d-flex align-items-center justify-content-between">
+        {/* Logo */}
+        <div className="d-flex align-items-center px-3 py-2">
+          <Image
+            src={logo} // change to your logo path
+            alt="Continental Logo"
+            width={250}
+            height={80}
+            className="d-inline-block align-top"
+            priority
+          />
+        </div>
+
+        {/* Toggler */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          onClick={() => setIsNavOpen(!isNavOpen)}
         >
-          {/* {banners.map((src, index) => (
-            <SwiperSlide key={index}>
-              <div className="position-relative" style={{ width: '100%', height: '800px' }}>
-  <Image
-    src={src}
-    alt={`Slide ${index + 1}`}
-    fill
-    className="object-cover w-100 h-100"
-    priority={index === 0}
-  />
-  <div
-    className="position-absolute top-0 start-0 w-100 h-100"
-    style={{
-      background: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7))',
-    }}
-  ></div>
-</div>
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-            </SwiperSlide>
-          ))} */}
-
-
-
-           <SwiperSlide className="swiperslid">
-  <div
-    className="position-relative w-100  responsive-banner"
-    
-  >
-    <Image
-      src={banner}
-      alt="banner"
-      fill
-      className="object-cover w-100 h-100"
-      priority
-    />
-    <div
-      className="position-absolute top-0 start-0 w-100 h-100"
-      style={{
-        background: 'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7))',
-      }}
-    ></div>
-  </div>
-</SwiperSlide>
-
-        </Swiper>
-      {/* <div
-                  className="position-absolute top-50 start-50 translate-middle text-white text-center"
-                  style={{
-                    maxWidth: '600px',
-                    padding: '20px',
-                    background: 'rgba(0,0,0,0.6)',
-                    borderRadius: '20px',
-                  }}
+        {/* Nav Links */}
+        <div className={`collapse navbar-collapse justify-content-center ${isNavOpen ? 'show' : ''}`}>
+          <ul className="navbar-nav gap-3">
+            {navLinks.map(({ label, href }) => (
+              <li className="nav-item" key={href}>
+                <Link
+                  href={href}
+                  className={`nav-link text-uppercase fw-semibold small custom-nav-link ${
+                    pathname === href ? 'fw-bold border-bottom border-2 active-link' : ''
+                  }`}
                 >
-                  <h2 className="fw-bold">Golden Coffee Roasters</h2>
-                  <p className="mb-0">
-                    Engineered for Excellence | Manufactured for Large-Scale Production
-                  </p>
-                </div> */}
-        {/* Custom Navigation */}
-        {/* <div
-          className="position-absolute bottom-0 end-0 d-flex align-items-center gap-3 p-3 z-3"
-          style={{ color: 'white' }}
-        >
-          <div className="custom-pagination" style={{ fontSize: '20px' }}></div>
-          <div className="d-flex gap-2">
-            <button className="custom-prev btn btn-outline-light rounded-circle border border-white">
-              <i className="fas fa-arrow-left"></i>
-            </button>
-            <button className="custom-next btn btn-outline-light rounded-circle border border-white">
-              <i className="fas fa-arrow-right"></i>
-            </button>
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Social icons for mobile view */}
+          <div className="d-lg-none mt-3 d-flex justify-content-center gap-2">
+            {socialIcons.map(({ icon, color }, idx) => (
+              <div
+                key={idx}
+                className="d-flex justify-content-center align-items-center rounded-circle"
+                style={{ width: '38px', height: '38px', backgroundColor: color }}
+              >
+                <i className={`bi bi-${icon} text-white`}></i>
+              </div>
+            ))}
           </div>
-        </div> */}
+        </div>
+
+        {/* Social Icons on Desktop */}
+        <div className="d-none d-lg-flex gap-2">
+          {socialIcons.map(({ icon, color }, idx) => (
+            <div
+              key={idx}
+              className="d-flex justify-content-center align-items-center rounded-circle"
+              style={{ width: '38px', height: '38px', backgroundColor: color }}
+            >
+              <i className={`bi bi-${icon} text-white`}></i>
+            </div>
+          ))}
+        </div>
+      </div>
+    </nav>
+
+
+
+   <section >
+     
+
+      
+
+       
+<Swiper
+  modules={[Navigation, Pagination, EffectCreative, ]} // Include Autoplay
+  navigation={{ nextEl: ".custom-next", prevEl: ".custom-prev" }}
+  pagination={{ el: ".custom-pagination", type: "fraction" }}
+ 
+  autoplay={{
+    delay: 2000, 
+    disableOnInteraction: false, 
+  }}
+  loop
+  className="mySwiper  swipwrheighr"
+>
+          {[bannr1,bannr2, bannr3, bannr4].map((image, index) => (
+            <SwiperSlide className="swiperslid" key={index}>
+              <div className="position-relative w-100 responsive-banner">
+                <Image
+                  src={image}
+                  alt={`banner-${index + 1}`}
+                  fill
+                  className="object-cover w-100 h-100"
+                  priority={index === 0}
+                />
+          
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+   
+       
+
+        
+       
+
       </section>
 
 
 
 
-          <section className="py-4 px-3 max90banner">
-      <h5 className="text-dark fw-semibold mb-3">
-        <span className="me-2" style={{ color: '#c49b00' }}>●</span>
-      Innovating Coffee Roasting with Quality Industries Excellence
-      </h5>
+  <section className="py-md-5 py-0">
+      <div className="container text-center">
+        {/* Heading */}
+        <h2 className="fw-bold mb-4 text-uppercase" style={{ color: '#2D0B00' }}>About Us</h2>
 
+        {/* Description */}
+        <p className="mb-5 mx-auto" style={{ fontSize:'20px', lineHeight: '1.8' }}>
+        We specialize in turnkey coffee processing solutions—from green bean handling to instant and soluble coffee production. Our advanced, energy-efficient systems ensure precision, hygiene, and compliance across extraction, evaporation, drying, and automation. Backed by decades of expertise and a global presence, we deliver integrated solutions with timely installation, 24/7 support, and strong client partnerships. Our mission is to preserve coffee’s richness while maximizing operational efficiency, sustainability, and long-term success.
+        </p>
 
-<Swiper
-  modules={[Autoplay]}
-  autoplay={{
-    delay: 1000,
-    disableOnInteraction: false,
-  }}
-  loop={true}
-  spaceBetween={10}
-  slidesPerView={1} // Mobile default
-  breakpoints={{
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 10,
-    },
-    576: {
-      slidesPerView: 1,
-      spaceBetween: 15,
-    },
-    768: {
-      slidesPerView: 2.5,
-      spaceBetween: 20,
-    },
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 25,
-    },
-  }}
->
-        {features.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className='card py-3'>
-              <div className="d-flex align-items-start gap-3">
-                <img src={item.icon.src} alt={item.title} width={50} height={50} />
-                <div>
-                  <h6 className="fw-bold mb-1 goldenh6">{item.title}</h6>
-                  <p className="mb-0 text-muted small">{item.desc}</p>
-                </div>
+        {/* Stats */}
+        <div className="row justify-content-center">
+          {[
+            { number: '400+', label: 'Clients' },
+            { number: '1000+', label: 'Blends' },
+            { number: '100+', label: 'Countries' },
+          
+          ].map((item, idx) => (
+            <div className="col-6 col-sm-6 col-md-3 mb-4" key={idx}>
+              <div className='statBox'>
+                <div className="text-orange fw-bold fs-3">{item.number}</div>
+                <div className="fw-semibold text-dark">{item.label}</div>
               </div>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </section>
-
-
-
-
-        <section className='container my-5 aboutSection'>
-      <div className="row align-items-center">
-     
-
-
-          <div className="col-md-6 ortalama-ayari-768">
-                        <Image alt="Golden Coffee Roasters" className="mask-image lazy entered lazy-loaded" width="500" height="500" data-ll-status="loaded"   src={cofemanu2}/>
-                    </div>
-
-        {/* Right Content */}
-        <div className="col-lg-6">
-          <h2 className="fw-bold">
-            <span className='goldText'>Quality Industries </span>{' '}
-            – Pioneering Turnkey Coffee Process Engineering
-            {/* Integrates Cutting-Edge Tech and{' '} */}
-            {/* <span className='goldText'>Craftsmanship</span> with Mastery */}
-          </h2>
-          <p className="mt-3">
-           Welcome to Quality Industries, where innovation meets precision in coffee processing. As a trusted provider of turnkey plant solutions for the coffee industry, we specialize in delivering technologically advanced, energy-efficient, and hygienic processing systems that span the entire production cycle — from green bean handling to instant and soluble coffee manufacturing.
-          </p>
-          <p>
-         Our comprehensive expertise ensures that every step — from aroma-optimizing extraction, efficient evaporation, to spray-drying and freeze-drying — is engineered for maximum quality, consistency, and productivity.
-          </p>
-          <p>
-         Whether you're a small-batch specialty producer or a large-scale industrial manufacturer, we offer customized solutions, global support, and a deep commitment to your long-term success. At Quality Industries, we don’t just build coffee plants — we build performance, trust, and a sustainable future for coffee.
-          </p>
-          
-          
-      <button className="btn btn-dark px-4 py-2 rounded-pill mt-3 golden-hover">
-  <span>Contact Us</span>
-</button>
-
-
+          ))}
         </div>
       </div>
     </section>
 
- <section className="container my-5">
+
+
+
+
+  <section className="container my-5 aboutSection ">
+        <div className="row align-items-center">
+          <div className="col-md-6 ortalama-ayari-768">
+            <Image
+              alt="Golden Coffee Roasters"
+              className="mask-image lazy entered lazy-loaded"
+              width="500"
+              height="500"
+              data-ll-status="loaded"
+              src={cofemanu2}
+            />
+          </div>
+
+          {/* Right Content */}
+          <div className="col-lg-6">
+            <h2 className="fw-bold">
+              <span className="goldText">Quality Industries </span> – Pioneering
+              Turnkey Coffee Process Engineering
+              {/* Integrates Cutting-Edge Tech and{' '} */}
+              {/* <span className='goldText'>Craftsmanship</span> with Mastery */}
+            </h2>
+            <p className="mt-3">
+              Welcome to Quality Industries, where innovation meets precision in
+              coffee processing. As a trusted provider of turnkey plant
+              solutions for the coffee industry, we specialize in delivering
+              technologically advanced, energy-efficient, and hygienic
+              processing systems that span the entire production cycle — from
+              green bean handling to instant and soluble coffee manufacturing.
+            </p>
+            <p>
+              Our comprehensive expertise ensures that every step — from
+              aroma-optimizing extraction, efficient evaporation, to
+              spray-drying and freeze-drying — is engineered for maximum
+              quality, consistency, and productivity.
+            </p>
+            <p>
+              Whether you are a small-batch specialty producer or a large-scale
+              industrial manufacturer, we offer customized solutions, global
+              support, and a deep commitment to your long-term success. At
+              Quality Industries, we don’t just build coffee plants — we build
+              performance, trust, and a sustainable future for coffee.
+            </p>
+
+            <button className="btn btnorage px-4 py-2 rounded-pill mt-3 ">
+              <span>Contact Us</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+
+
+
+  <section className="container my-5">
         <h2 className="text-center mb-4 pb-4 h2size  ">Testimonials</h2>
         <Swiper
           spaceBetween={30}
@@ -496,9 +490,100 @@ const testimonials = [
             </SwiperSlide>
           ))}
         </Swiper>
-      </section>
+      </section> 
 
-    <section className="py-5 container aboutSection">
+          {/* <section className="py-4 px-3 max90banner">
+      <h5 className="text-dark fw-semibold mb-3">
+        <span className="me-2" style={{ color: '#c49b00' }}>●</span>
+      Innovating Coffee Roasting with Quality Industries Excellence
+      </h5>
+
+
+<Swiper
+  modules={[Autoplay]}
+  autoplay={{
+    delay: 1000,
+    disableOnInteraction: false,
+  }}
+  loop={true}
+  spaceBetween={10}
+  slidesPerView={1} 
+  breakpoints={{
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    576: {
+      slidesPerView: 1,
+      spaceBetween: 15,
+    },
+    768: {
+      slidesPerView: 2.5,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 25,
+    },
+  }}
+>
+        {features.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div className='card py-3'>
+              <div className="d-flex align-items-start gap-3">
+                <img src={item.icon.src} alt={item.title} width={50} height={50} />
+                <div>
+                  <h6 className="fw-bold mb-1 goldenh6">{item.title}</h6>
+                  <p className="mb-0 text-muted small">{item.desc}</p>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section> */}
+
+
+
+{/* 
+        <section className='container my-5 aboutSection'>
+      <div className="row align-items-center">
+     
+
+
+          <div className="col-md-6 ortalama-ayari-768">
+                        <Image alt="Golden Coffee Roasters" className="mask-image lazy entered lazy-loaded" width="500" height="500" data-ll-status="loaded"   src={cofemanu2}/>
+                    </div>
+
+        <div className="col-lg-6">
+          <h2 className="fw-bold">
+            <span className='goldText'>Quality Industries </span>{' '}
+            – Pioneering Turnkey Coffee Process Engineering
+          
+          </h2>
+          <p className="mt-3">
+           Welcome to Quality Industries, where innovation meets precision in coffee processing. As a trusted provider of turnkey plant solutions for the coffee industry, we specialize in delivering technologically advanced, energy-efficient, and hygienic processing systems that span the entire production cycle — from green bean handling to instant and soluble coffee manufacturing.
+          </p>
+          <p>
+         Our comprehensive expertise ensures that every step — from aroma-optimizing extraction, efficient evaporation, to spray-drying and freeze-drying — is engineered for maximum quality, consistency, and productivity.
+          </p>
+          <p>
+         Whether you're a small-batch specialty producer or a large-scale industrial manufacturer, we offer customized solutions, global support, and a deep commitment to your long-term success. At Quality Industries, we don’t just build coffee plants — we build performance, trust, and a sustainable future for coffee.
+          </p>
+          
+          
+      <button className="btn btn-dark px-4 py-2 rounded-pill mt-3 golden-hover">
+  <span>Contact Us</span>
+</button>
+
+
+        </div>
+      </div>
+    </section> */}
+
+
+
+    {/* <section className="py-5 container aboutSection">
       <div className=" text-center">
         <h2 className="mb-2">Product Features</h2>
         <p className="text-muted mb-4">Standard and Optional Features of Golden Products</p>
@@ -528,7 +613,7 @@ const testimonials = [
         </div>
       </div>
     </section>
-
+ */}
 
      
 

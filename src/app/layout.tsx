@@ -7,7 +7,6 @@ import BootstrapClient from '@/components/BootstrapClient'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { Toaster } from "react-hot-toast";
 import { Poppins } from 'next/font/google';
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

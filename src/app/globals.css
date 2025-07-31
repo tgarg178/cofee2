@@ -97,7 +97,10 @@ body {
   height: 100vh;
   max-height: 1000px;
 }
+ .swipwrheighr{
+    max-height:820px !important;
 
+ }
 @media (max-width: 768px) {
   .responsive-banner {
     height: 60vh;
@@ -110,8 +113,12 @@ body {
       max-height: 300px;
   }
   .swiperslid{
-    max-height: 400px !important;
+    max-height: 320px !important;
   }
+ .swipwrheighr{
+    max-height: 330px !important;
+
+ }
 }
 
 
@@ -275,10 +282,72 @@ body {
 
 
 .puzzle {
-background-color: #101010;
+/* background-color: #101010; */
+     background-color: #fcf4eb;
  /* border-radius: 2rem; */
   padding: 40px 20px;
   margin-top: 50px !important;
   padding-bottom: 0px !important;
+
+}
+
+.bgnavbar{
+background-color: #f5f2eb;
+}
+.custom-nav-link {
+  color: #000; /* default color */
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-nav-link:hover {
+  color: #F26522;
+}
+
+.active-link {
+  color: #F26522 !important;
+  border-color: #F26522 !important;
+}
+.statBox {
+  border: 2px solid #f26522;
+  padding: 30px 10px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.statBox::before,
+.statBox::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #f26522;
+  bottom: -1px;
+  transition: all 0.3s ease;
+}
+
+.statBox::before {
+  left: 0;
+}
+
+.statBox::after {
+  right: 0;
+}
+
+.text-orange {
+  color: #f26522;
+}
+
+
+.btnorage{
+  background-color:#f26522 !important;
+  color: #fff !important;
+}
+
+.btnorage:hover{
+
+  border:2px solid  #f26522 !important;
+  background-color: white !important;
+  color: #F26522 !important;
+
 
 }
