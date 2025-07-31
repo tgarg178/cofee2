@@ -5,45 +5,45 @@
 
 
 
-import { toast } from "react-hot-toast";
+// import { toast } from "react-hot-toast";
 
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import emailjs from "emailjs-com";
+// import { ErrorMessage, Field, Form, Formik } from "formik";
+// import emailjs from "emailjs-com";
 
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 
 import React, { useEffect ,useState} from 'react';
 import { usePathname } from 'next/navigation';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+// import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, EffectCreative } from 'swiper/modules';
 import Image from 'next/image';
-import banner from '../assets/machine1baneer.webp'; // Your actual image
+// import banner from '../assets/machine1baneer.webp'; 
 import logo from '../assets/logomain.png';
-import logo2 from '../assets/logonew.png';
-import logo3 from '../assets/logo3.png';
+// import logo2 from '../assets/logonew.png';
+// import logo3 from '../assets/logo3.png';
 
 
 import cofemanu2 from '../assets/cofemanu2.webp'
 
-import { Autoplay } from 'swiper/modules';
-import counseling from '../assets/counseling.png';
-import warranty from '../assets/warranty.png';
-import support from '../assets/support.png';
-import technology from '../assets/technology.png';
-import sustainability from '../assets/sustainability.png';
-import f1 from '../assets/f1.png';
-import f2 from '../assets/f2.png';
-import f3 from '../assets/f3.png';
-import f4 from '../assets/f4.png';
-import f5 from '../assets/f5.png';
-import f6 from '../assets/f6.png';
-import f7 from '../assets/f7.png';
-import f8 from '../assets/f8.png';
-import f9 from '../assets/f9.png';
-import f10 from '../assets/f10.png';
-import f11 from '../assets/f11.png';
-import f12 from '../assets/f12.png';
+// import { Autoplay } from 'swiper/modules';
+// import counseling from '../assets/counseling.png';
+// import warranty from '../assets/warranty.png';
+// import support from '../assets/support.png';
+// import technology from '../assets/technology.png';
+// import sustainability from '../assets/sustainability.png';
+// import f1 from '../assets/f1.png';
+// import f2 from '../assets/f2.png';
+// import f3 from '../assets/f3.png';
+// import f4 from '../assets/f4.png';
+// import f5 from '../assets/f5.png';
+// import f6 from '../assets/f6.png';
+// import f7 from '../assets/f7.png';
+// import f8 from '../assets/f8.png';
+// import f9 from '../assets/f9.png';
+// import f10 from '../assets/f10.png';
+// import f11 from '../assets/f11.png';
+// import f12 from '../assets/f12.png';
 
 
 
@@ -105,105 +105,105 @@ const socialIcons = [
       }
     });
   }, [pathname]);
-const banners = [
-  banner,
-banner,
-banner,
- banner,
-banner,
-];
+// const banners = [
+//   banner,
+// banner,
+// banner,
+//  banner,
+// banner,
+// ];
 
 
-const features = [
-  {
-    icon: sustainability,
-    title: 'Sustainability',
-    desc: 'We prioritize a greener future through eco-friendly practices',
-  },
-  {
-    icon: technology,
-    title: 'Technology',
-    desc: 'Embrace innovation with cutting-edge technology for roasting experience',
-  },
-  {
-    icon: support,
-    title: '24/7 Technical Support',
-    desc: 'Enjoy round-the-clock support to address queries and troubleshoot',
-  },
-  {
-    icon: warranty,
-    title: 'International Warranty',
-    desc: 'Trust in our products with a comprehensive international warranty',
-  },
-  {
-    icon:counseling,
-      title: 'Counseling Services',
-    desc: 'We offer valuable insights and support for your coffee roasting journey',
-  }
-];
+// const features = [
+//   {
+//     icon: sustainability,
+//     title: 'Sustainability',
+//     desc: 'We prioritize a greener future through eco-friendly practices',
+//   },
+//   {
+//     icon: technology,
+//     title: 'Technology',
+//     desc: 'Embrace innovation with cutting-edge technology for roasting experience',
+//   },
+//   {
+//     icon: support,
+//     title: '24/7 Technical Support',
+//     desc: 'Enjoy round-the-clock support to address queries and troubleshoot',
+//   },
+//   {
+//     icon: warranty,
+//     title: 'International Warranty',
+//     desc: 'Trust in our products with a comprehensive international warranty',
+//   },
+//   {
+//     icon:counseling,
+//       title: 'Counseling Services',
+//     desc: 'We offer valuable insights and support for your coffee roasting journey',
+//   }
+// ];
 
-const features2 = [
- {
-    title: '2 Year Warranty',
-    icon: f1,
-    desc: 'Golden coffee roasters come with a 2-year warranty for worry-free performance.',
-  },
-  {
-    title: '3rd Party Software Compliance',
-    icon: f2,
-    desc: 'Compatible with third-party software such as Artisan and Cropster for seamless roasting control.',
-  },
-  {
-    title: 'Air Flow Control',
-    icon: f3,
-    desc: 'Precise airflow adjustment enables consistent and even roasting results.',
-  },
-  {
-    title: 'Conductive Roasting',
-    icon: f4,
-    desc: 'Ensures uniform heat transfer through conduction for enhanced bean flavor development.',
-  },
-  {
-    title: 'Double Wall Drum',
-    icon: f5,
-    desc: 'Reduces heat loss and improves roast stability using an insulated dual-layer drum.',
-  },
-  {
-    title: 'Drum Speed Control',
-    icon: f6,
-    desc: 'Allows users to fine-tune the drum rotation speed for optimal roast profiles.',
-  },
-  {
-    title: 'Energy Efficiency',
-    icon: f7,
-    desc: 'Designed for maximum energy savings while maintaining peak roasting performance.',
-  },
-  {
-    title: 'Flame Level Control',
-    icon: f8,
-    desc: 'Adjustable flame settings help regulate temperature for each roast stage.',
-  },
-  {
-    title: 'Fully Automation',
-    icon: f9,
-    desc: 'Offers full automation for easy and repeatable roast cycles with minimal operator input.',
-  },
-  {
-    title: 'High Thermal Insulation',
-    icon: f10,
-    desc: 'High-grade insulation materials preserve heat and reduce energy consumption.',
-  },
-  {
-    title: 'Low NOx',
-    icon: f11,
-    desc: 'Eco-friendly burner design ensures low nitrogen oxide (NOx) emissions for a greener roast.',
-  },
-  {
-    title: 'Modulated Burner',
-    icon: f12,
-    desc: 'Automatically modulates flame output for consistent and precise temperature control.',
-  }
-];
+// const features2 = [
+//  {
+//     title: '2 Year Warranty',
+//     icon: f1,
+//     desc: 'Golden coffee roasters come with a 2-year warranty for worry-free performance.',
+//   },
+//   {
+//     title: '3rd Party Software Compliance',
+//     icon: f2,
+//     desc: 'Compatible with third-party software such as Artisan and Cropster for seamless roasting control.',
+//   },
+//   {
+//     title: 'Air Flow Control',
+//     icon: f3,
+//     desc: 'Precise airflow adjustment enables consistent and even roasting results.',
+//   },
+//   {
+//     title: 'Conductive Roasting',
+//     icon: f4,
+//     desc: 'Ensures uniform heat transfer through conduction for enhanced bean flavor development.',
+//   },
+//   {
+//     title: 'Double Wall Drum',
+//     icon: f5,
+//     desc: 'Reduces heat loss and improves roast stability using an insulated dual-layer drum.',
+//   },
+//   {
+//     title: 'Drum Speed Control',
+//     icon: f6,
+//     desc: 'Allows users to fine-tune the drum rotation speed for optimal roast profiles.',
+//   },
+//   {
+//     title: 'Energy Efficiency',
+//     icon: f7,
+//     desc: 'Designed for maximum energy savings while maintaining peak roasting performance.',
+//   },
+//   {
+//     title: 'Flame Level Control',
+//     icon: f8,
+//     desc: 'Adjustable flame settings help regulate temperature for each roast stage.',
+//   },
+//   {
+//     title: 'Fully Automation',
+//     icon: f9,
+//     desc: 'Offers full automation for easy and repeatable roast cycles with minimal operator input.',
+//   },
+//   {
+//     title: 'High Thermal Insulation',
+//     icon: f10,
+//     desc: 'High-grade insulation materials preserve heat and reduce energy consumption.',
+//   },
+//   {
+//     title: 'Low NOx',
+//     icon: f11,
+//     desc: 'Eco-friendly burner design ensures low nitrogen oxide (NOx) emissions for a greener roast.',
+//   },
+//   {
+//     title: 'Modulated Burner',
+//     icon: f12,
+//     desc: 'Automatically modulates flame output for consistent and precise temperature control.',
+//   }
+// ];
 
 const testimonials = [
   {
